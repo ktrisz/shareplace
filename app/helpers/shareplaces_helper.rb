@@ -1,0 +1,2 @@
+module ShareplacesHelper
+end
