@@ -11,18 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304060621) do
+ActiveRecord::Schema.define(version: 201803100220621) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string  "name",    limit: 255
+    t.integer "city_id", limit: 4
+  end
+
+  add_index "areas", ["city_id"], name: "fk_rails_0bb70140b1", using: :btree
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name",   limit: 255
+    t.text   "person", limit: 65535
+    t.string "email",  limit: 255
+    t.string "phone",  limit: 255
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "text",        limit: 65535
-    t.string   "city",        limit: 255
-    t.string   "area",        limit: 255
+    t.string   "tag",         limit: 255
     t.string   "address",     limit: 255
     t.integer  "phonenumber", limit: 4
     t.text     "URL",         limit: 65535
+    t.integer  "area_id",     limit: 4
+    t.integer  "city_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["area_id"], name: "fk_rails_b31b79981a", using: :btree
+  add_index "posts", ["city_id"], name: "fk_rails_3e73622a21", using: :btree
+
+  add_foreign_key "areas", "cities"
+  add_foreign_key "posts", "areas"
+  add_foreign_key "posts", "cities"
 end

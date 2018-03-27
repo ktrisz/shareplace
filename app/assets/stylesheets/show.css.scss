@@ -1,0 +1,18 @@
+.post-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+.post-item{
+  width:450px;
+  height:200px;
+  border: solid 2px #ff8000;
+
+
+}
+
+/* http://localhost:3000/shareplaces/1/posts/1
+* それぞれの投稿の詳細ページのCSSを以下に記述
+*/

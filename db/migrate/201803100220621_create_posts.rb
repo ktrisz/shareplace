@@ -3,11 +3,12 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string  :name
       t.text    :text
-      t.string  :city
-      t.string  :area
+      t.string  :tag
       t.string  :address
       t.integer :phonenumber
       t.text    :URL
+      t.references :area, foreign_key: true
+      t.references :city, foreign_key: true
       t.timestamps
     end
   end

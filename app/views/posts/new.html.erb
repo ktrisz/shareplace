@@ -1,4 +1,59 @@
-<h1>this is new form </h1>
-新規投稿をする画面です。
+<html>
+ <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="posts.css.scss">
+    <title>New Report</title>
+    </head>
+ <body>
+   <header>
+     <h1>Thanks for your report ^-^</h1>
+   </header>
+     <div class="container">
+      <div class="contents pt-4">
 
+           <%= form_for [@city, @post] , url: shareplace_posts_path do |f| %>
+          <div class="form-group">
+            <%= f.label :name, class:"text-left"%>
+            <%= f.text_field :name ,class:"form-control",placeholder: "name" %>
+          </div>
+
+            <div class="form-group">
+              <%= f.label :text%>
+              <%= f.text_field :text,class:"form-control" ,placeholder: "text" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :tag%>
+              <%= f.text_field :tag,class:"form-control" ,placeholder: "tag" %>
+
+            </div>
+            <div class="form-group">
+              <%= f.label :address%>
+              <%= f.text_field :address ,class:"form-control",placeholder: "address" %>
+
+            </div>
+            <div class="form-group">
+              <%= f.label :phonenumber%>
+              <%= f.text_field :phonenumber,class:"form-control" ,placeholder: "090-xxx-yyzz" %>
+
+            </div>
+            <div class="form-group">
+              <%= f.label :URL%>
+              <%= f.text_field :URL,class:"form-control" ,placeholder: "https://google.com" %>
+
+            </div>
+
+            <div class="form-group">
+              <%= f.label :area_id%>
+              <%= f.select :area_id, @city.areas.all.map{|o| [o.name, o.id]},{}, {class: "form-control", include_blank: true } %>
+
+            </div>
+
+            <div class="form-group">
+            <%= f.submit "send",class:"btn btn-primary"%>
+
+           <% end %>
+       </div>
+
+     </div>
 

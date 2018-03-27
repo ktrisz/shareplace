@@ -8,7 +8,7 @@
     <header>
       <div class="heading">
         <h1 class="title">ITOCHU DataBase</h1>
-        <p class="heading-sentence">駐在地の情報をシェアしよう</p>
+        <p class="heading-sentence">世界で活躍する伊藤忠パーソンの「便利」のために</p>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -17,7 +17,13 @@
               <a class="nav-link" href="#">サイト紹介 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">利用方法・各位へのお願い</a>
+              <a class="nav-link" href="#">使い方・注意点</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">人総関連規程</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">FAQ</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">お問い合わせ</a>
@@ -28,28 +34,15 @@
     </header>
 
     <div class="contents container">
-      <div class="left-content content">
-        <h2>都市で検索</h2>
-        <%= link_to "london" , shareplace_path(1) %>
-        <select>
-          <option value="NewYork">New York</option>
-          <option value="London">London</option>
-          <option value="Sydney">Sydney</option>
-          <option value="Beijing">Beijing</option>
-          <option value="Dubai">Dubai</option>
-          <option value="Moscow">Moscow</option>
-        </select>
+      <div class="upper-content content">
+        <h2>駐在地情報を調べよう</h2>
+         <tr>
+          <td><%= link_to "London" , shareplace_path(1) %></td>
+          <td><%= link_to "NewYork" , shareplace_path(2) %></td>
+          <td><%= link_to "Beijing" , shareplace_path(3) %></td>
+          <td><%= link_to "Singapore" , shareplace_path(4) %></td>
+          <td><%= link_to "Dubai" , shareplace_path(5) %></td>
       </div>
-      <dif class="right-content content">
-        <h2>カテゴリで検索</h2>
-        <select>
-          <option value="School">学校</option>
-          <option value="Hospital">病院</option>
-          <option value="Hotel">ホテル</option>
-          <option value="Office">オフィス</option>
-          <option value="Restaurant">レストラン</option>
-        </select>
-      </dif>
     </div>
 
     <div class="main-content">
@@ -60,22 +53,22 @@
               <tr>
                 <th>Date</th>
                 <th>City</th>
-                <th>What's New</th>
+                <th>イベント情報</th>
               </tr>
               <tr>
                 <td>2018/3/1</td>
-                <td>北京</td>
+                <td>Beijing</td>
                 <td>大使館が移転しました</td>
               </tr>
               <tr>
                 <td>2018/3/3</td>
-                <td>London</td>
+                <td>Moscow</td>
                 <td>テロ事件発生！</td>
               </tr>
               <tr>
                 <td>2018/3/3</td>
-                <td>Bangkok</td>
-                <td>空港からの交通手段に関する相談</td>
+                <td>Sydney</td>
+                <td>オフィス近くに寿司屋開店</td>
               </tr>
             </table>
           </div>
@@ -84,17 +77,17 @@
               <tr>
                 <th>Date</th>
                 <th>City</th>
-                <th>What's New</th>
+                <th>相談・問合せ</th>
               </tr>
               <tr>
                 <td>2018/3/1</td>
-                <td>北京</td>
-                <td>大使館が移転しました</td>
+                <td>Dubai</td>
+                <td>空港そばのホテル教えてください</td>
               </tr>
               <tr>
                 <td>2018/3/3</td>
                 <td>London</td>
-                <td>テロ事件発生！</td>
+                <td>良いインター校を知りたい</td>
               </tr>
               <tr>
                 <td>2018/3/3</td>
