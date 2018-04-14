@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string  :address
       t.integer :phonenumber
       t.text    :URL
+      t.string  :image
       t.references :area, foreign_key: true
       t.references :city, foreign_key: true
       t.timestamps
