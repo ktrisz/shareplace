@@ -10,35 +10,55 @@
     <header>
       <div class="heading">
         <h1>Welcome to <%= @city.name %></h1>
+        <%= link_to "TOP画面へ移動する", "http://localhost:3000/" %>
       </div>
-      <div class="contents container">
-        <h3 class="ml-3">エリアから探す</h3>
-        <h3 class="ml-3">ジャンルから探す</h3>
+
+      <div class="contents upper">
+        <table border="1px" bordercolor="black">
+          <tr>
+            <th>人総担当者</th>
+            <th>email</th>
+            <th>電話番号</th>
+          </tr>
+          <tr>
+            <td><%= @city.person %></td>
+            <td><%= @city.email %></td>
+            <td><%= @city.phone %></td>
+          </tr>
+        </table>
+      </div>
+      <div class="contents container d-flex flex-row justify-content-around">
+        <div>
+          <a class="ml-3" href="#">エリアから探す</a>
+        </div>
+        <div>
+          <a class="ml-3" href="#">ジャンルから探す</a>
+          <%= form_tag search_shareplaces_path , method: :get do %>
+            <div class="form-group">
+              <%= hidden_field_tag(:city_id, @city.id) %>
+              <%= text_field_tag :keyword,  params[:keyword],class: "form_control"%>
+              <%= submit_tag "send" , class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </header>
       <div class="contents pt-3">
-        <h4>What's NEW</h4>
-        <%= link_to "新規投稿をする" , new_shareplace_post_path(1) %>
+        <h4>What's NEW(最近の投稿)</h4>
+        <%= link_to "新規投稿をする" , new_shareplace_post_path(@city) , class: "btn btn-outline-dark mb-4" %>
           <div class="post-container">
             <% @posts.each do |post| %>
-            <div class="post-item">
-              <tr>
-                <td>ID</td>
-                <td><%= post.id %></td>
-              </tr>
-              <tr>
-                <td>Name</td>
-                 <td><%= "#{post.name}" %></td>
-
-              </tr><br>
-              <tr>
-                <td>ジャンル</td>
-                <td><%= post.tag %></td>
-              </tr>
-              <tr>
-                <td>エリア</td>
-                <td><%= post.area %></td>
-              </tr><br>
+            <% image = post.image.present? ?  post.image : ""%>
+            <div class="post-item" style='background-image:url(/assets/<%= "#{image}" %>.jpg)'>
+              <a href='<%= "/shareplaces/1/posts/#{post.id}" %>'>
+                <ul class="d-flex flex-column">
+                    <li><%= post.id %></li>
+                  <li><%= post.name%></li>
+                  <li><%= post.tag%></li>
+                  <li><%= post.area.name%></li>
+                  <li><%= post.city.name%></li>
+                </ul>
+              </a>
             </div>
 
             <% end %>

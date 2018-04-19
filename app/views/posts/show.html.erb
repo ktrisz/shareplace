@@ -1,11 +1,44 @@
-postの詳細ページ
- <p>id: 1,</p>
- <p>name: "Pizza Union Dalston",</p>
- <p>text: "ピザの名店",</p>
- <p>tag: "レストラン",</p>
- <p>address: "14 Kingsland High St, London",</p>
- <p>phonenumber: 1234557,</p>
- <p>URL: "google.com",</p>
- <p>area_id: 1, -> london</p>
- <p>city_id: 1, -> london</p>
+<html>
 
+  <head>
+    <title>Show for all around the World</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="heading">
+        <h1>投稿の詳細ページ</h1>
+      </div>
+      <%= link_to "TOP画面へ移動する", "http://localhost:3000/" %>
+    </header>
+    <table border="1px" bordercolor="black">
+     <tr>
+      <th>ID</th>
+      <td><%= @post.id %></td>
+     </tr>
+     <tr>
+     <th>施設名称</th>
+     <td><%= @post.name %></td>
+     </tr>
+     <th>写真</th>
+     <td><%= image_tag("#{@post.image}.jpg") %></td>
+     </tr>
+     <tr>
+     <th>概要</th>
+     <td><%= @post.text %></td>
+     </tr>
+     <th>カテゴリー</th>
+     <td><%= @post.tag %></td>
+     </tr>
+     <th>住所</th>
+     <td><%= @post.address %></td>
+     </tr>
+     <th>電話番号</th>
+     <td><%= @post.phonenumber %></td>
+     </tr>
+     <th>ホームページ</th>
+     <td><%= @post.URL %></td>
+     </tr>
+    </table>
+  </body>
+</html>

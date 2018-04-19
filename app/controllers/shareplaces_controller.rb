@@ -4,8 +4,8 @@ class ShareplacesController < ApplicationController
   end
 
   def show
-     @city = City.find(1)
-     @posts = Post.all
+     @city = City.find(params[:id])
+     @posts = @city.posts
   end
 
   def new
@@ -16,4 +16,9 @@ class ShareplacesController < ApplicationController
 
   end
 
+  def search
+     @city = City.find(params[:city_id])
+     @posts =  @city.posts.where(tag: params[:keyword])
+     render :show
+  end
 end

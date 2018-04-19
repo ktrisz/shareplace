@@ -6,45 +6,50 @@
     </head>
  <body>
    <header>
-     <h1>Thanks for your report ^-^</h1>
+     <h1>Report for Share</h1>
+     <p class="heading-sentence">皆さんの駐在地で、業務上・プライベートで知っておくと便利なレストランやホテルなど、施設の情報について、ぜひシェアしてください！</p>
    </header>
      <div class="container">
       <div class="contents pt-4">
 
            <%= form_for [@city, @post] , url: shareplace_posts_path do |f| %>
           <div class="form-group">
-            <%= f.label :name, class:"text-left"%>
+            <%= f.label :施設名称, class:"text-left"%>
             <%= f.text_field :name ,class:"form-control",placeholder: "name" %>
           </div>
 
             <div class="form-group">
-              <%= f.label :text%>
+              <%= f.label :ひとことコメント%>
               <%= f.text_field :text,class:"form-control" ,placeholder: "text" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :tag%>
+              <%= f.label :カテゴリー%>
               <%= f.text_field :tag,class:"form-control" ,placeholder: "tag" %>
 
             </div>
             <div class="form-group">
-              <%= f.label :address%>
+              <%= f.label :住所%>
               <%= f.text_field :address ,class:"form-control",placeholder: "address" %>
 
             </div>
             <div class="form-group">
-              <%= f.label :phonenumber%>
+              <%= f.label :電話番号%>
               <%= f.text_field :phonenumber,class:"form-control" ,placeholder: "090-xxx-yyzz" %>
 
             </div>
             <div class="form-group">
               <%= f.label :URL%>
               <%= f.text_field :URL,class:"form-control" ,placeholder: "https://google.com" %>
-
             </div>
 
             <div class="form-group">
-              <%= f.label :area_id%>
+              <%= f.label :Picture%>
+              <%= f.text_field :image,class:"form-control" ,placeholder: "xxxxxxxxxx.jpg" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :エリア%>
               <%= f.select :area_id, @city.areas.all.map{|o| [o.name, o.id]},{}, {class: "form-control", include_blank: true } %>
 
             </div>

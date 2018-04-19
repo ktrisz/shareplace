@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 201803100220621) do
     t.string   "address",     limit: 255
     t.integer  "phonenumber", limit: 4
     t.text     "URL",         limit: 65535
+    t.string   "image",       limit: 255
     t.integer  "area_id",     limit: 4
     t.integer  "city_id",     limit: 4
     t.datetime "created_at"
