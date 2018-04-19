@@ -28,15 +28,21 @@
         </table>
       </div>
       <div class="contents container d-flex flex-row justify-content-around">
+        <%= form_tag area_search_shareplaces_path , method: :get do %>
+        <div class="form-group">
+          <label for="keyword" class="ml-3" href="#">エリアから探す</a>
+         <%= hidden_field_tag(:city_id, @city.id) %>
+              <%= text_field_tag :keyword,  params[:keyword],class: "form_control", name: "keyword"%>
+              <%= submit_tag "send" , class: "btn btn-primary" %>
+            </div>
+          <% end %>
         <div>
-          <a class="ml-3" href="#">エリアから探す</a>
-        </div>
-        <div>
-          <a class="ml-3" href="#">ジャンルから探す</a>
+
           <%= form_tag search_shareplaces_path , method: :get do %>
             <div class="form-group">
+              <label for="keyword" class="ml-3" href="#">ジャンルから探す</a>
               <%= hidden_field_tag(:city_id, @city.id) %>
-              <%= text_field_tag :keyword,  params[:keyword],class: "form_control"%>
+              <%= text_field_tag :keyword,  params[:keyword],class: "form_control", name: "keyword"%>
               <%= submit_tag "send" , class: "btn btn-primary" %>
             </div>
           <% end %>

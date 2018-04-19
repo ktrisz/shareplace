@@ -6,6 +6,7 @@
     resources :shareplaces do
       collection do
         get :search
+        get :area_search
       end
 
       resources :posts
