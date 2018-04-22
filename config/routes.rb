@@ -1,4 +1,5 @@
   Rails.application.routes.draw do
+  devise_for :users
     root 'shareplaces#index'
     # get 'shareplaces'     => 'shareplaces#index'
     # get 'shareplaces/new' => 'shareplaces#new'
@@ -9,7 +10,9 @@
         get :area_search
       end
 
-      resources :posts
+      resources :posts do
+        resources :comments, only: [:create, :new]
+      end
       # routingのネストをしてるのでmooovi
     end
 

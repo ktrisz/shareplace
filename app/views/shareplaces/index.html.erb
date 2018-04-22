@@ -7,8 +7,23 @@
   <body>
     <header>
       <div class="heading">
-        <h1 class="title">ITOCHU DataBase</h1>
-        <p class="heading-sentence">世界で活躍する伊藤忠パーソンの「便利」のために</p>
+        <div class=" d-flex flex-row align-items-center justify-content-around">
+          <h1 class="title">ITOCHU DataBase</h1>
+
+          <div class="header__bar">
+            <% if user_signed_in? %>
+              <div class="user_nav grid-6">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: "btn btn-primary"%>
+              </div>
+            <% else %>
+              <div class="grid-6">
+                <%= link_to "ログイン", new_user_session_path, class: 'post' ,class: "btn btn-primary"%>
+                <%= link_to "新規登録", new_user_registration_path, class: 'post' ,class: "btn btn-primary"%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+          <p class="heading-sentence">世界で活躍する伊藤忠パーソンの「便利」のために</p>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -33,6 +48,7 @@
         </div>
       </nav>
     </header>
+
 
     <div class="contents">
       <div class="upper-content content">
@@ -64,12 +80,12 @@
               </tr>
               <tr>
                 <td>2018/3/3</td>
-                <td>Moscow</td>
+                <td>London</td>
                 <td>テロ事件発生！</td>
               </tr>
               <tr>
                 <td>2018/3/3</td>
-                <td>Sydney</td>
+                <td>Dubai</td>
                 <td>オフィス近くに寿司屋開店</td>
               </tr>
             </table>
@@ -83,7 +99,7 @@
               </tr>
               <tr>
                 <td>2018/3/1</td>
-                <td>Dubai</td>
+                <td>NewYork</td>
                 <td>空港そばのホテル教えてください</td>
               </tr>
               <tr>
@@ -93,7 +109,7 @@
               </tr>
               <tr>
                 <td>2018/3/3</td>
-                <td>Bangkok</td>
+                <td>Singapole</td>
                 <td>空港からの交通手段に関する相談</td>
               </tr>
             </table>

@@ -12,6 +12,8 @@ class PostsController < ApplicationController
 
   def show
     @post =Post.find(params[:id])
+    @shareplace = City.find(params[:shareplace_id])
+    @comments = @post.comments.includes(:user)
   end
 
   private

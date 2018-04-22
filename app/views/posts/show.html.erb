@@ -40,5 +40,29 @@
      <td><%= @post.URL %></td>
      </tr>
     </table>
+  <div class="container  m-3">
+    <!-- ここからフォーム -->
+    <% if current_user %>
+      <%= form_tag("/shareplaces/#{@shareplace.id}/posts/#{@post.id}/comments", method: :post) do %>
+          <div class="form-group">
+            <textarea class="form-control" name="text" placeholder="コメントする"  id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        <input type="submit" value="SENT" class="btn btn-primary">
+      <% end %>
+    <% end %>
+        <div class="comments">
+        <h4>＜コメント一覧＞</h4>
+        <% if @post %>
+        テストです。
+        <% @post.comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
+            <%= comment.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
   </body>
 </html>
